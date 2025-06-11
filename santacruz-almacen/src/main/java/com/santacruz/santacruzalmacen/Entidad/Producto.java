@@ -22,14 +22,16 @@ public class Producto {
     private Long idProducto;
     private String nombre;
     private String descripcion;
+
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate fechaVencimiento;
+
     private Integer precioUnitario;
 
     @JoinColumn(name = "idCategoria", referencedColumnName = "idCategoria", insertable = false, updatable = false)
-    //@ManyToOne(fetch = FetchType.EAGER)
     @ManyToOne(fetch = FetchType.LAZY)
     private Categoria categoria;
+
     private Integer Stock;
     private Integer Codigo;
     private String Estado;

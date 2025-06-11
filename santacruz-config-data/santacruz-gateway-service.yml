@@ -17,48 +17,50 @@ spring:
         locator:
           enable: true
       routes:
+        - id: santacruz-auth-service
+          uri: lb://santacruz-auth-service
+          predicates:
+            - Path=/auth/**
+
         - id: santacruz-venta-service
           uri: lb://santacruz-venta-service
           predicates:
             - Path=/ventas/**
             - Path=/mediodepagos/**
             - Path=/ventadetalles/**
-          filters:
-            - AuthFilter
+          #filters:
+          #  - AuthFilter
 
         - id: santacruz-compra-service
           uri: lb://santacruz-compra-service
           predicates:
             - Path=/compras/**
             - Path=/compradetalles/**
-          filters:
-            - AuthFilter
+            #filters:
+          #  - AuthFilter
 
         - id: santacruz-almacen-service
           uri: lb://santacruz-almacen-service
           predicates:
             - Path=/productos/**
             - Path=/categorias/**
-          filters:
-            - AuthFilter
+          #filters:
+          #  - AuthFilter
 
         - id: santacruz-empresa-service
           uri: lb://santacruz-empresa-service
           predicates:
             - Path=/sucursales/**
             - Path=/empresas/**
-          filters:
-            - AuthFilter
+          #filters:
+          #  - AuthFilter
 
         - id: santacruz-usuario-service
           uri: lb://santacruz-usuario-service
           predicates:
             - Path=/trabajadores/**
             - Path=/clientes/**
-          filters:
-            - AuthFilter
+          #filters:
+          #  - AuthFilter
 
-        - id: santacruz-auth-service
-          uri: lb://santacruz-auth-service
-          predicates:
-            - Path=/auth/**
+
